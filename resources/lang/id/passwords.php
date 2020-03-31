@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'Kata sandi harus memiliki minimal enam karakter dan sesuai dengan konfirmasinya.',
-    'reset' => 'Kata sandi Anda telah di-reset!',
-    'sent' => 'Kami telah kirimkan email berisi link untuk reset kata sandi Anda!',
-    'token' => 'Token untuk reset kata sandi invalid.',
-    'user' => 'Kami tidak temukan pengguna dengan alamat email tersebut.',
+    'reset' => 'Kata sandi telah diatur ulang!',
+    'sent' => 'Kami telah mengirimkan tautan ubah kata sandi ke email anda!',
+    'throttled' => 'Mohon menunggu sebelum mencoba lagi.',
+    'token' => 'Token setel ulang kata sandi tidak valid.',
+    'user' => "Tidak ditemukan pengguna dengan alamat email tersebut.",
 
 ];

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Data tidak sesuai dengan data pada database.',
-    'throttle' => 'Terlalu banyak percobaan login. Silahkan mencoba kembali dalam :seconds detik.',
+    'failed' => 'Pengguna/kata sandi tidak sesuai.',
+    'throttle' => 'Percobaan masuk terlalu sering. Silahkan coba lagi dalam :seconds detik.',
 
 ];
