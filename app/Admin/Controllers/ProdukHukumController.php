@@ -124,11 +124,21 @@ class ProdukHukumController extends Controller
             $filter->like('judul', 'Judul');
         });
         $grid->quickSearch('nomor', 'tahun', 'judul');
-        $grid->nomor('Nomor')->filter()->sortable();
+        $grid->nomor('Nomor')->width(80)->filter()->sortable();
         $grid->tahun('Tahun')->width(100)->filter()->sortable();
         $grid->judul('Judul')->width(500)->filter()->sortable();
         $grid->status('Status')->display(function ($status) {
-            return self::STATUS[$status];
+            switch ($status) {
+                case 1:
+                    return "<span style='color:green'>".self::STATUS[$status]."</span>";
+                    break;
+                case 2:
+                    return "<span style='color:red'>".self::STATUS[$status]."</span>";
+                    break;
+                default:
+                    return "<span style='color:orange'>".self::STATUS[$status]."</span>";
+                    break;
+            }
         })->width(100)->filter(self::STATUS)->sortable();
         $grid->updated_at(trans('admin.updated_at'))->width(150)->date('Y-m-d H:i:s')->sortable();
 
@@ -153,10 +163,8 @@ class ProdukHukumController extends Controller
         $show->retensi('Retensi');
         $show->status('Status')->using(self::STATUS);
         $show->sandi('Sandi');
-        // if (1 == (int) $show->tipe()) {
-            $show->qrcode('QR Code');
-            $show->kode_acak('Kode Acak');
-        // }
+        $show->qrcode('QR Code');
+        $show->kode_acak('Kode Acak');
         $show->created_at(trans('admin.created_at'));
         $show->updated_at(trans('admin.updated_at'));
 
