@@ -125,7 +125,7 @@ class ProdukHukumController extends Controller
         });
         $grid->quickSearch('nomor', 'tahun', 'judul');
         $grid->nomor('Nomor')->filter()->sortable();
-        $grid->nomor('Tahun')->width(100)->filter()->sortable();
+        $grid->tahun('Tahun')->width(100)->filter()->sortable();
         $grid->judul('Judul')->width(500)->filter()->sortable();
         $grid->status('Status')->display(function ($status) {
             return self::STATUS[$status];
