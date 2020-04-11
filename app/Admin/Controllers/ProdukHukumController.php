@@ -10,6 +10,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Symfony\Component\Console\Input\Input;
 
 class ProdukHukumController extends Controller
 {
@@ -48,7 +49,7 @@ class ProdukHukumController extends Controller
             ->header('Produk Hukum')
             ->description('Daftar Data')
             ->breadcrumb(
-                ['text' => 'Produk Hukum', 'url' => '/admin/produk_hukum'],
+                ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
             )
             ->body($this->grid());
     }
@@ -66,7 +67,7 @@ class ProdukHukumController extends Controller
             ->header('Produk Hukum')
             ->description('Detil')
             ->breadcrumb(
-                ['text' => 'Produk Hukum', 'url' => '/admin/produk_hukum'],
+                ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
                 ['text' => 'Detil'],
             )
             ->body($this->detail($id));
@@ -85,7 +86,7 @@ class ProdukHukumController extends Controller
             ->header('Produk Hukum')
             ->description('Ubah')
             ->breadcrumb(
-                ['text' => 'Produk Hukum', 'url' => '/admin/produk_hukum'],
+                ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
                 ['text' => 'Ubah'],
             )
             ->body($this->form()->edit($id));
@@ -181,18 +182,24 @@ class ProdukHukumController extends Controller
 
         $form->text('nomor', 'Nomor')->setWidth(2, 2)->rules('required|numeric|gte:5')->autofocus();
         $form->text('tahun', 'Tahun')->setWidth(2, 2)->rules('required|size:4');
-        $form->text('judul', 'Judul')->setWidth(10, 2)->rules('required|min:3');
+        $form->textarea('judul', 'Judul')->setWidth(10, 2)->rules('required|min:3')->rows(2);
         $form->ckeditor('isi')->setWidth(10, 2)->rules('required');
         $form->select('tipe', 'Tipe')->setWidth(2, 2)->rules('required')->options(self::TIPE);
         $form->date('retensi', 'Retensi')->rules('required|date');
         $form->text('sandi', 'Sandi')->setWidth(3, 2)->rules('required');
         $form->select('status', 'Status')->setWidth(2, 2)->options(self::STATUS);
 
-        $form->footer(function ($footer) {
-            $footer->disableViewCheck();
-            $footer->disableEditingCheck();
-            $footer->disableCreatingCheck();
-        });
+        if ($form->isEditing()) {
+            $form->tools(function (Form\Tools $tools) {
+                $id = request()->segment(3);
+                $tools->add('<a class="btn btn-sm btn-success" href="/unduh/'.$id.'/pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;Unduh PDF</a>&nbsp;&nbsp;');
+            });
+        } else {
+            $form->footer(function ($footer) {
+                $footer->disableReset(false);
+                $footer->disableSubmit(false);
+            });
+        }
 
         return $form;
     }

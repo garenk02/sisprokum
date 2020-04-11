@@ -8,27 +8,24 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
 
-	// The toolbar groups arrangement, optimized for two toolbar rows.
-	config.toolbarGroups = [
-		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection'] },
-		{ name: 'insert' },
-		{ name: 'tools' },
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'others' },
-		'/',
+    config.toolbarGroups = [
+		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+		{ name: 'forms', groups: [ 'forms' ] },
+        { name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
+        { name: 'others', groups: [ 'others' ] },
+        '/',
+        { name: 'styles', groups: [ 'styles' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] }
-	];
+		{ name: 'insert', groups: [ 'insert' ] },
+		{ name: 'editing', groups: [ 'selection', 'find', 'spellchecker', 'editing' ] },
+		{ name: 'links', groups: [ 'links' ] },
+		{ name: 'tools', groups: [ 'tools' ] },
+		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] }
+    ];
 
-	// Remove some buttons provided by the standard plugins, which are
-	// not needed in the Standard(s) toolbar.
-	// config.removeButtons = 'Underline,Subscript,Superscript';
-	config.removeButtons = 'Image';
+    config.enterMode = CKEDITOR.ENTER_BR;
 
-	// Set the most common block elements.
-	config.format_tags = 'p;h1;h2;h3;pre';
+	config.removeButtons = 'Save,NewPage,Print,Templates,Preview,Scayt,Form,HiddenField,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,CreateDiv,BidiLtr,BidiRtl,Language,Link,Unlink,Anchor,Image,Flash,Smiley,SpecialChar,Iframe,TextColor,BGColor,ShowBlocks,About,Styles,Format';
 
-	// Simplify the dialog windows.
-	// config.removeDialogTabs = 'image:advanced;link:advanced';
+    config.extraPlugins = ['find', 'justify', 'removeformat', 'tableresize'];
 };
