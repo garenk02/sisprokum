@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\ProdukHukumExporter;
 use App\Models\ProdukHukum;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
@@ -124,23 +125,21 @@ class ProdukHukumController extends Controller
             $filter->like('judul', 'Judul');
         });
         $grid->quickSearch('nomor', 'tahun', 'judul');
-        $grid->nomor('Nomor')->width(80)->filter()->sortable();
+        $grid->nomor('Nomor')->width(100)->filter()->sortable();
         $grid->tahun('Tahun')->width(100)->filter()->sortable();
         $grid->judul('Judul')->width(500)->filter()->sortable();
         $grid->status('Status')->display(function ($status) {
-            switch ($status) {
-                case 1:
-                    return "<span style='color:green'>".self::STATUS[$status]."</span>";
-                    break;
-                case 2:
-                    return "<span style='color:red'>".self::STATUS[$status]."</span>";
-                    break;
-                default:
-                    return "<span style='color:orange'>".self::STATUS[$status]."</span>";
-                    break;
-            }
-        })->width(100)->filter(self::STATUS)->sortable();
+            return self::STATUS[$status];
+        })->width(100)->filter(self::STATUS)->sortable()->label([
+            self::STATUS[0] => 'warning',
+            self::STATUS[1] => 'success',
+            self::STATUS[2] => 'danger',
+        ]);
         $grid->updated_at(trans('admin.updated_at'))->width(150)->date('Y-m-d H:i:s')->sortable();
+        $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $actions->disableView();
+        });
+        $grid->exporter(new ProdukHukumExporter());
 
         return $grid;
     }

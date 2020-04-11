@@ -31,7 +31,7 @@ return [
     'order'                 => 'Urutan',
     'expand'                => 'Bentangkan',
     'collapse'              => 'Ciutkan',
-    'filter'                => 'Saringan',
+    'filter'                => 'Saring',
     'search'                => 'Cari',
     'close'                 => 'Tutup',
     'show'                  => 'Detil',
