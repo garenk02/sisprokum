@@ -131,9 +131,9 @@ class ProdukHukumController extends Controller
         $grid->status('Status')->display(function ($status) {
             return self::STATUS[$status];
         })->width(100)->filter(self::STATUS)->sortable()->label([
-            self::STATUS[0] => 'warning',
-            self::STATUS[1] => 'success',
-            self::STATUS[2] => 'danger',
+            0 => 'warning',
+            1 => 'success',
+            2 => 'danger',
         ]);
         $grid->updated_at(trans('admin.updated_at'))->width(150)->date('Y-m-d H:i:s')->sortable();
         $grid->actions(function (Grid\Displayers\Actions $actions) {
