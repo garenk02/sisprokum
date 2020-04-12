@@ -45,12 +45,12 @@
                     <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(120)->merge('/storage/app/images/logo-kemenag.png')->generate('SK Nomor: '.$produk->nomor.' Tahun: '.$produk->tahun.' Tentang: '.$produk->judul)) !!} ">
                 </td>
                 <td width="45%" valign="bottom">
-                    Ditetapkan di Jakarta<br>
-                    pada tanggal ........<br><br>
+                    Ditetapkan di {{ $produk->kota }}<br>
+                    pada tanggal {{ Carbon\Carbon::parse($produk->tanggal)->translatedFormat('d F Y') }}<br><br>
                     DIREKTUR JENDERAL<br>
                     BIMBINGAN MASYARAKAT KRISTEN,<br><br>
                     <br><br><br><br>
-                    THOMAS PENTURY
+                    {{ config('dirjen.name', 'THOMAS PENTURY') }}
                 </td>
             </tr>
         </table>

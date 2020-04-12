@@ -27,6 +27,8 @@ class ProdukHukum extends Model
         'judul',
         'isi',
         'tipe',
+        'kota',
+        'tanggal',
         'retensi',
         'status',
         'sandi',

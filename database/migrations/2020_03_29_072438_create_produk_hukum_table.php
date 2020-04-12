@@ -23,6 +23,8 @@ class CreateProdukHukumTable extends Migration
             $table->mediumText('judul');
             $table->longText('isi');
             $table->smallInteger('tipe')->default(1);
+            $table->char('kota', 50)->default('Jakarta');
+            $table->date('tanggal')->default(now());
             $table->date('retensi')->nullable();
             $table->string('sandi', 10);
             $table->smallInteger('status')->default(0);
