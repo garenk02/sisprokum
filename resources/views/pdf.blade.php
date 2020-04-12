@@ -42,7 +42,7 @@
         <table border="0" width="100%" style="margin-top:10px;">
             <tr>
                 <td width="55%" valign="bottom">
-                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(120)->merge('/storage/app/images/logo-kemenag.png')->generate('SK Nomor: '.$produk->nomor.' Tahun: '.$produk->tahun.' Tentang: '.$produk->judul)) !!} ">
+                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(130)->merge('/storage/app/images/logo-kemenag.png')->generate('SK Nomor: '.$produk->nomor.' Tahun: '.$produk->tahun.' Tentang: '.$produk->judul)) !!} ">
                 </td>
                 <td width="45%" valign="bottom">
                     Ditetapkan di {{ $produk->kota }}<br>

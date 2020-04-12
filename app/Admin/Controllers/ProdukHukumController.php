@@ -10,7 +10,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
-use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Str;
 
 class ProdukHukumController extends Controller
 {
@@ -190,6 +190,7 @@ class ProdukHukumController extends Controller
         $form->date('retensi', 'Retensi')->rules('required|date');
         $form->text('sandi', 'Sandi')->setWidth(3, 2)->rules('required');
         $form->select('status', 'Status')->setWidth(2, 2)->options(self::STATUS);
+        $form->text('kode_acak')->readonly();
 
         if ($form->isEditing()) {
             $form->tools(function (Form\Tools $tools) {
@@ -209,6 +210,10 @@ class ProdukHukumController extends Controller
                 $footer->disableSubmit(false);
             });
         }
+
+        $form->saving(function (Form $form) {
+            $form->kode_acak = Str::random(40);
+        });
 
         return $form;
     }
