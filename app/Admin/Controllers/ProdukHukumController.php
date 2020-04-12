@@ -192,7 +192,14 @@ class ProdukHukumController extends Controller
         if ($form->isEditing()) {
             $form->tools(function (Form\Tools $tools) {
                 $id = request()->segment(3);
-                $tools->add('<a class="btn btn-sm btn-success" href="/unduh/'.$id.'/pdf" target="_blank"><i class="fa fa-download"></i>&nbsp;Unduh PDF</a>&nbsp;&nbsp;');
+                $tools->add('
+                    <div class="btn-group pull-right" style="margin-right: 5px">
+                        <a href="/unduh/'.$id.'/pdf" class="btn btn-sm btn-success" title="Unduh PDF" target="_blank">
+                            <i class="fa fa-download"></i>
+                            <span class="hidden-xs">&nbsp;Unduh PDF</span>
+                        </a>
+                    </div>
+                ');
             });
         } else {
             $form->footer(function ($footer) {

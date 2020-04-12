@@ -22,7 +22,7 @@
 </head>
 <body>
     <center>
-        <img src="{{ public_path('storage/images/logo-kemenag-bw.png') }}" width="120" height="120" />
+        <img src="{{ storage_path('app/images/logo-kemenag-bw.png') }}" width="120" height="120" />
     </center>
     <p class="center">
         KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN<br>
@@ -42,7 +42,7 @@
         <table border="0" width="100%" style="margin-top:10px;">
             <tr>
                 <td width="55%" valign="bottom">
-                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(120)->merge('/public/storage/images/logo-kemenag.png')->generate('SK Nomor: '.$produk->nomor.' Tahun: '.$produk->tahun.' Tentang: '.$produk->judul)) !!} ">
+                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(120)->merge('/storage/app/images/logo-kemenag.png')->generate('SK Nomor: '.$produk->nomor.' Tahun: '.$produk->tahun.' Tentang: '.$produk->judul)) !!} ">
                 </td>
                 <td width="45%" valign="bottom">
                     Ditetapkan di Jakarta<br>
