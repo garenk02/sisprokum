@@ -29,10 +29,25 @@ class ProdukHukum extends Model
         'tipe',
         'kota',
         'tanggal',
+        'extra',
         'retensi',
         'status',
         'sandi',
         'qrcode',
         'kode_acak',
     ];
+
+    protected $casts = [
+        'extra' => 'array',
+    ];
+
+    public function getExtraAttribute($extra)
+    {
+        return array_values(json_decode($extra, true) ?: []);
+    }
+
+    public function setExtraAttribute($extra)
+    {
+        $this->attributes['extra'] = json_encode(array_values($extra));
+    }
 }

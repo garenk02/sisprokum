@@ -186,7 +186,9 @@ class ProdukHukumController extends Controller
         $form->ckeditor('isi')->setWidth(10, 2)->rules('required');
         $form->text('kota', 'Ditetapkan di')->setWidth(2, 2)->rules('required');
         $form->date('tanggal', 'Tanggal')->rules('required|date');
-        $form->select('tipe', 'Tipe')->setWidth(2, 2)->rules('required')->options(self::TIPE);
+        $form->table('extra', function ($table) {
+            $table->text('jabatan');
+        })->required();
         $form->date('retensi', 'Retensi')->rules('required|date');
         $form->text('sandi', 'Sandi')->setWidth(3, 2)->rules('required');
         $form->select('status', 'Status')->setWidth(2, 2)->options(self::STATUS);
