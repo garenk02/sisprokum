@@ -27,5 +27,5 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.removeButtons = 'Save,NewPage,Print,Templates,Preview,Scayt,Form,HiddenField,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,CreateDiv,BidiLtr,BidiRtl,Language,Link,Unlink,Anchor,Image,Flash,Smiley,SpecialChar,Iframe,TextColor,BGColor,ShowBlocks,About,Styles,Format';
 
-    config.extraPlugins = ['find', 'justify', 'liststyle', 'removeformat', 'tableresize'];
+    config.extraPlugins = ['find', 'justify', 'liststyle', 'removeformat', 'tableresize', 'tabletools'];
 };

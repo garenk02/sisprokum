@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'online'                => 'Daring',
+    'online'                => 'Online',
     'login'                 => 'Masuk',
     'logout'                => 'Keluar',
     'setting'               => 'Pengaturan',
     'name'                  => 'Nama',
-    'username'              => 'Username',
+    'username'              => 'Nama Pengguna',
     'password'              => 'Sandi',
     'password_confirmation' => 'Konfirmasi Sandi',
     'remember_me'           => 'Ingatkan saya',
