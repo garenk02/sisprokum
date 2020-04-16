@@ -24,7 +24,6 @@ class ProdukHukumController extends Controller
     const STATUS = [
         0 => 'Draf',
         1 => 'Aktif',
-        2 => 'Non-aktif',
     ];
 
     /**
