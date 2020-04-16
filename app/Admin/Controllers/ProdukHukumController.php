@@ -33,7 +33,7 @@ class ProdukHukumController extends Controller
      */
     protected function title()
     {
-        return 'Produk Hukum';
+        return 'eProduk Hukum';
     }
 
     /**
@@ -45,7 +45,7 @@ class ProdukHukumController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->header('Produk Hukum')
+            ->header('eProduk Hukum')
             ->description('Daftar Data')
             ->breadcrumb(
                 ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
@@ -63,7 +63,7 @@ class ProdukHukumController extends Controller
     public function show($id, Content $content)
     {
         return $content
-            ->header('Produk Hukum')
+            ->header('eProduk Hukum')
             ->description('Detil')
             ->breadcrumb(
                 ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
@@ -82,7 +82,7 @@ class ProdukHukumController extends Controller
     public function edit($id, Content $content)
     {
         return $content
-            ->header('Produk Hukum')
+            ->header('eProduk Hukum')
             ->description('Ubah')
             ->breadcrumb(
                 ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
@@ -100,7 +100,7 @@ class ProdukHukumController extends Controller
     public function create(Content $content)
     {
         return $content
-            ->header('Produk Hukum')
+            ->header('eProduk Hukum')
             ->description('Buat Baru')
             ->breadcrumb(
                 ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],

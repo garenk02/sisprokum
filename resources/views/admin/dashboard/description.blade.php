@@ -8,7 +8,7 @@
             <table class="table table-striped">
                 <tr>
                     <td>
-                        Ini adalah halaman darbor Sistem Informasi Produk Hukum<br>
+                        Ini adalah halaman dasbor eProduk Hukum - eProKum<br>
                         Direktorat Jenderal Bimbingan Masyarakat Kristen<br>
                         Kementerian Agama Republik Indonesia.
                     </td>
