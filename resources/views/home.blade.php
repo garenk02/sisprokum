@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sistem Informasi Produk Hukum</title>
+        <title>eProduk Hukum - eProKum</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -68,7 +68,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <img src="{{ asset('storage/images/logo-kemenag.png') }}" title="Logo Kemenag RI" />
-                <div class="title">Sistem Informasi Produk Hukum</div>
+                <div class="title">eProduk Hukum - eProKum</div>
                 <div class="sub-title m-b-md">Direktorat Jenderal Bimbingan Masyarakat Kristen</div>
                 <div class="container">
                     <table class="table table-bordered data-table">

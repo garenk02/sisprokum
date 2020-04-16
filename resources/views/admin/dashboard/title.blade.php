@@ -8,6 +8,4 @@
         margin: 20px 0 10px 0px;
     }
 </style>
-<div class="title">
-    Sistem Informasi Produk Hukum
-</div>
+<div class="title">eProduk Hukum - eProKum</div>

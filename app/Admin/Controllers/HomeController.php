@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         return $content
             ->title('Beranda')
-            ->description('Sistem Informasi Produk Hukum')
+            ->description('eProduk Hukum - eProKum')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
                 $row->column(12, function (Column $column) {
