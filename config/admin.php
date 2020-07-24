@@ -300,7 +300,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => url('storage/images/bg-hukum.jpeg'),
+    'login_background_image' => '/storage/images/bg-hukum.jpeg',
 
     /*
     |--------------------------------------------------------------------------

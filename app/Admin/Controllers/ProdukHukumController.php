@@ -179,9 +179,9 @@ class ProdukHukumController extends Controller
     {
         $form = new Form(new ProdukHukum);
 
-        $form->text('nomor', 'Nomor')->setWidth(2, 2)->rules('required|numeric|gte:5')->autofocus();
+        $form->text('nomor', 'Nomor')->setWidth(2, 2)->rules('required|numeric')->autofocus();
         $form->text('tahun', 'Tahun')->setWidth(2, 2)->rules('required|size:4');
-        $form->textarea('judul', 'Judul')->setWidth(10, 2)->rules('required|min:3')->rows(2);
+        $form->textarea('judul', 'Judul')->setWidth(10, 2)->rules('required')->rows(2);
         $form->ckeditor('isi')->setWidth(10, 2)->rules('required');
         $form->text('kota', 'Ditetapkan di')->setWidth(2, 2)->rules('required');
         $form->date('tanggal', 'Tanggal')->rules('required|date');
