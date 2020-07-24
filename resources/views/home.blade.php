@@ -40,11 +40,14 @@
                 text-align: center;
             }
             .title {
+                color: #fff;
                 font-size: 40px;
-                font-weight: 200;
+                font-weight: bold;
             }
             .sub-title {
+                color: #fff;
                 font-size: 24px;
+                font-weight: bold;
             }
             .links > a {
                 color: #636b6f;
@@ -66,14 +69,21 @@
                 width: 120px;
                 height: auto;
             }
+            #header-fe {
+                background-image: url("{{ asset('storage/images/bg-gedung-thamrin.jpeg') }}");
+                background-position: center;
+                opacity: 0.9;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <img src="{{ asset('storage/images/logo_kemenag.png') }}" title="Logo Kemenag RI" class="logo"/>
-                <div class="title">eProduk Hukum (eProKum)</div>
-                <div class="sub-title m-b-md">Direktorat Jenderal Bimbingan Masyarakat Kristen</div>
+                <div id="header-fe">
+                    <img src="{{ asset('storage/images/logo_kemenag.png') }}" title="Logo Kemenag RI" class="logo"/>
+                    <div class="title">eProduk Hukum (eProKum)</div>
+                    <div class="sub-title m-b-md">Direktorat Jenderal Bimbingan Masyarakat Kristen</div>
+                </div>
                 <div class="container">
                     <table class="table table-bordered data-table">
                         <thead>
