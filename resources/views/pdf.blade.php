@@ -63,7 +63,7 @@
             TENTANG<br>
             {{ strtoupper($produk->judul) }}<br><br>
             DENGAN RAHMAT TUHAN YANG MAHA ESA<br><br>
-            DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN
+            DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN,
         </p>
     </div>
     <div class="content">
