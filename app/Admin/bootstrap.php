@@ -2,6 +2,7 @@
 
 use Encore\Admin\Form;
 use App\Admin\Extensions\Form\CKEditor;
+use Encore\Admin\Facades\Admin;
 
 /**
  * Laravel-admin - admin builder based on Laravel.
@@ -30,3 +31,5 @@ Form::init(function (Form $form) {
         $tools->disableView();
     });
 });
+
+Admin::js('/vendor/chartjs/dist/Chart.min.js');

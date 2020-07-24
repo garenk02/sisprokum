@@ -57,7 +57,7 @@ return [
     'choose'                => 'Pilih',
     'choose_file'           => 'Pilih berkas',
     'choose_image'          => 'Pilih gambar',
-    'more'                  => 'Lebih banyak',
+    'more'                  => 'Selengkapnya',
     'deny'                  => 'Akses ditolak',
     'administrator'         => 'Administrator',
     'roles'                 => 'Aturan',

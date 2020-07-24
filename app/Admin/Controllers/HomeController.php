@@ -14,12 +14,19 @@ class HomeController extends Controller
     {
         return $content
             ->title('Beranda')
-            ->description(config('app_title'))
+            ->description('Sistem Informasi Produk Hukum (eProKum)')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
-                $row->column(12, function (Column $column) {
-                    $column->append(Dashboard::description());
+                $row->column(4, function (Column $column) {
+                    $column->append(Dashboard::infoTotal());
                 });
-            });
+                $row->column(4, function (Column $column) {
+                    $column->append(Dashboard::infoActive());
+                });
+                $row->column(4, function (Column $column) {
+                    $column->append(Dashboard::infoDraft());
+                });
+            })
+            ->body(Dashboard::infoChart());
     }
 }
