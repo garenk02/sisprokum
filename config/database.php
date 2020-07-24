@@ -1,14 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-// $request = new Request();
-// if ('sisprokum.herokuapp.com' == $request->getHost()) {
-    $DATABASE_URL = parse_url('postgres://iorjkhoujrqrfa:e21790c553ec55ada8788f408bc54b46ce34627e5700f43ad44445f5ec3c271f@ec2-34-206-252-187.compute-1.amazonaws.com:5432/d7i9qjtscberdc');
-// } else {
-//     $DATABASE_URL = parse_url('postgres://'.env('DB_USERNAME').':'.env('DB_PASSWORD').'@'.env('DB_HOST').':'.env('DB_PORT').'/'.env('DB_DATABASE'));
-// }
+// $DATABASE_URL = parse_url('postgres://iorjkhoujrqrfa:e21790c553ec55ada8788f408bc54b46ce34627e5700f43ad44445f5ec3c271f@ec2-34-206-252-187.compute-1.amazonaws.com:5432/d7i9qjtscberdc');
+
+if (getenv('DATABASE_URL')) {
+    $url = parse_url(env("DATABASE_URL"));
+    putenv('DB_CONNECTION=' . ($url['scheme'] == 'postgres' ? 'pgsql' : $url['scheme']));
+    putenv("DB_HOST={$url['host']}");
+    putenv("DB_PORT={$url['port']}");
+    putenv("DB_USERNAME={$url['user']}");
+    putenv("DB_PASSWORD={$url['pass']}");
+    putenv('DB_DATABASE=' . substr($url['path'], 1));
+}
 
 return [
 
@@ -73,11 +77,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL['host'],
-            'port' => $DATABASE_URL['port'],
-            'database' => ltrim($DATABASE_URL['path'], '/'),
-            'username' => $DATABASE_URL['user'],
-            'password' => $DATABASE_URL['pass'],
+            'host' => env('DB_HOST'), // $DATABASE_URL['host'],
+            'port' => env('DB_PORT'), // $DATABASE_URL['port'],
+            'database' => env('DB_DATABASE'), // ltrim($DATABASE_URL['path'], '/'),
+            'username' => env('DB_USERNAME'), // $DATABASE_URL['user'],
+            'password' => env('DB_PASSWORD'), // $DATABASE_URL['pass'],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
@@ -130,7 +134,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

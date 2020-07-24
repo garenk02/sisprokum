@@ -7,6 +7,6 @@
     </head>
     <body>
         <script src="/pdfobject.min.js"></script>
-        <script>PDFObject.embed("{{ asset('storage/public/uploads/files/'.$file) }}", document.body);</script>
+        <script>PDFObject.embed("{{ asset('storage/uploads/files/'.$file) }}", document.body);</script>
     </body>
 </html>

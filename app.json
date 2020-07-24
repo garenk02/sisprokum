@@ -1,0 +1,15 @@
+{
+    "name": "sisprokum",
+    "description": "Sistem Informasi Produk Hukum",
+    "keywords": [
+        "laravel",
+        "dokku",
+        "heroku"
+    ],
+    "scripts": {
+        "dokku": {
+            "predeploy": ".dokku/predeploy.sh",
+            "postdeploy": ".dokku/postdeploy.sh"
+        }
+    }
+}
