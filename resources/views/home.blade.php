@@ -112,7 +112,25 @@
                 {data: 'tahun', name: 'tahun'},
                 {data: 'judul', name: 'judul', className: 'dt-body-left'},
                 {data: 'action', name: 'aksi', orderable: false, searchable: false},
-            ]
+            ],
+            language: {
+                sEmptyTable: "Tidak ada data yang tersedia pada tabel ini",
+                sProcessing: "Sedang memproses...",
+                sLengthMenu: "Tampilkan _MENU_",
+                sZeroRecords: "Tidak ditemukan data yang sesuai",
+                sInfo: "Menampilkan _START_ - _END_ dari total _TOTAL_",
+                sInfoEmpty: "Menampilkan 0 data",
+                sInfoFiltered: "(disaring dari _MAX_ data)",
+                sInfoPostFix: "",
+                sSearch: "Cari:",
+                sUrl: "",
+                oPaginate: {
+                    sFirst: "Awal",
+                    sPrevious: "Sebelumnya",
+                    sNext: "Berikutnya",
+                    sLast: "Akhir"
+                }
+            }
         });
     });
     </script>

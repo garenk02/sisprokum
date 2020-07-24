@@ -201,7 +201,7 @@ class ProdukHukumController extends Controller
         });
         $form->date('retensi', 'Retensi')->rules('required|date');
         $form->select('paper', 'Ukuran Kertas')->setWidth(2, 2)->options(self::PAPER)->rules('required');
-        $form->text('sandi', 'Sandi')->setWidth(3, 2)->rules('required');
+        $form->hidden('sandi');
         $form->select('status', 'Status')->setWidth(2, 2)->options(self::STATUS);
         $form->hidden('kode_acak');
 
@@ -212,7 +212,7 @@ class ProdukHukumController extends Controller
                     <span style="padding-right: 2px">
                         <a href="/admin/produk_hukum/'.$id.'/preview" class="btn btn-sm btn-warning" title="Pratinjau" target="_blank">
                             <i class="fa fa-eye"></i>
-                            &nbsp;Pratinjau
+                            <span class="hidden-xs">Pratinjau</span>
                         </a>
                     </span>
                 ');
@@ -220,7 +220,7 @@ class ProdukHukumController extends Controller
                     <span style="padding-right: 5px">
                         <a href="/unduh/'.$id.'/pdf" class="btn btn-sm btn-success" title="Unduh" target="_blank">
                             <i class="fa fa-download"></i>
-                            &nbsp;Unduh
+                            <span class="hidden-xs">Unduh</span>
                         </a>
                     </span>
                 ');
