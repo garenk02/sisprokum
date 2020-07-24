@@ -71,8 +71,8 @@
             }
             #header-fe {
                 background-image: url("{{ asset('storage/images/bg-gedung-thamrin.jpeg') }}");
-                background-position: center;
-                opacity: 0.9;
+                background-repeat: no-repeat;
+                background-size: cover;
             }
         </style>
     </head>
