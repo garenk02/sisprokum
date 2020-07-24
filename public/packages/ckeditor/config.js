@@ -25,7 +25,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.language = 'id';
     config.enterMode = CKEDITOR.ENTER_BR;
 
-	config.removeButtons = 'Save,NewPage,Print,Templates,Preview,Scayt,Form,HiddenField,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,CreateDiv,BidiLtr,BidiRtl,Language,Link,Unlink,Anchor,Image,Flash,Smiley,SpecialChar,Iframe,TextColor,BGColor,ShowBlocks,About';
+	config.removeButtons = 'Save,NewPage,Print,Templates,Preview,Scayt,Form,HiddenField,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,CreateDiv,BidiLtr,BidiRtl,Language,Link,Unlink,Anchor,Image,Flash,Smiley,SpecialChar,Iframe,TextColor,BGColor,ShowBlocks';
 
-    config.extraPlugins = ['find', 'justify', 'liststyle', 'removeformat', 'tableresize', 'tabletools'];
+    config.extraPlugins = ['autogrow', 'find', 'justify', 'liststyle', 'removeformat', 'tableresize', 'tabletools'];
 };
