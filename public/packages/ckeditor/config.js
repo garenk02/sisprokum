@@ -30,4 +30,6 @@ CKEDITOR.editorConfig = function( config ) {
     config.extraPlugins = ['find', 'justify', 'liststyle', 'removeformat', 'tableresize', 'tabletools', 'pastefromword', 'pastetools'];
 
     config.allowedContent = true;
+    config.pasteFromWordPromptCleanup = false;
+    config.pasteFromWordRemoveStyles = false;
 };
