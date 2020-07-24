@@ -238,7 +238,7 @@ class ProdukHukumController extends Controller
         $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
         $title = 'SK-'.trim($produk->nomor).'-'.trim($produk->tahun);
         $filename = $title.'.pdf';
-        Storage::disk('public')->put('uploads/files/'.$filename, $pdf->output());
+        Storage::disk('public')->put($filename, $pdf->output());
 
         return view('preview', [
             'title' => $title,
