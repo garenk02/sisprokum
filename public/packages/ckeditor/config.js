@@ -22,6 +22,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] }
     ];
 
+    config.language = 'id';
     config.enterMode = CKEDITOR.ENTER_BR;
 
 	config.removeButtons = 'Save,NewPage,Print,Templates,Preview,Scayt,Form,HiddenField,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,CreateDiv,BidiLtr,BidiRtl,Language,Link,Unlink,Anchor,Image,Flash,Smiley,SpecialChar,Iframe,TextColor,BGColor,ShowBlocks,About';

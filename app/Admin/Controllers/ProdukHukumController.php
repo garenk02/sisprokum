@@ -10,7 +10,9 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PDF;
 
 class ProdukHukumController extends Controller
 {
@@ -24,6 +26,11 @@ class ProdukHukumController extends Controller
     const STATUS = [
         0 => 'Draf',
         1 => 'Aktif',
+    ];
+
+    const PAPER = [
+        'a4' => 'A4',
+        'legal' => 'Legal/F4',
     ];
 
     /**
@@ -135,7 +142,7 @@ class ProdukHukumController extends Controller
             1 => 'success',
             2 => 'danger',
         ]);
-        $grid->updated_at(trans('admin.updated_at'))->width(150)->date('Y-m-d H:i:s')->sortable();
+        $grid->updated_at(trans('admin.updated_at'))->width(150)->date('d-m-Y')->sortable();
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             $actions->disableView();
         });
@@ -160,6 +167,7 @@ class ProdukHukumController extends Controller
         $show->isi('Isi Surat');
         $show->tipe('Tipe')->using(self::TIPE);
         $show->retensi('Retensi');
+        $show->paper('Kertas');
         $show->status('Status')->using(self::STATUS);
         $show->sandi('Sandi');
         $show->qrcode('QR Code');
@@ -189,6 +197,7 @@ class ProdukHukumController extends Controller
             $table->text('jabatan');
         });
         $form->date('retensi', 'Retensi')->rules('required|date');
+        $form->select('paper', 'Ukuran Kertas')->setWidth(2, 2)->options(self::PAPER)->rules('required');
         $form->text('sandi', 'Sandi')->setWidth(3, 2)->rules('required');
         $form->select('status', 'Status')->setWidth(2, 2)->options(self::STATUS);
         $form->hidden('kode_acak');
@@ -197,10 +206,14 @@ class ProdukHukumController extends Controller
             $form->tools(function (Form\Tools $tools) {
                 $id = request()->segment(3);
                 $tools->add('
-                    <div class="btn-group pull-right" style="margin-right: 5px">
+                    <div class="btn-group pull-right" style="padding-right: 5px">
                         <a href="/unduh/'.$id.'/pdf" class="btn btn-sm btn-success" title="Unduh PDF" target="_blank">
                             <i class="fa fa-download"></i>
                             <span class="hidden-xs">&nbsp;Unduh PDF</span>
+                        </a>
+                        <a href="/admin/produk_hukum/'.$id.'/preview" class="btn btn-sm btn-warning" title="Pratinjau" target="_blank">
+                            <i class="fa fa-eye"></i>
+                            <span class="hidden-xs">&nbsp;Pratinjau</span>
                         </a>
                     </div>
                 ');
@@ -217,5 +230,19 @@ class ProdukHukumController extends Controller
         });
 
         return $form;
+    }
+
+    public function preview(int $id)
+    {
+        $produk = ProdukHukum::find($id);
+        $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
+        $title = 'SK-'.trim($produk->nomor).'-'.trim($produk->tahun);
+        $filename = $title.'.pdf';
+        Storage::disk('public')->put('uploads/files/'.$filename, $pdf->output());
+
+        return view('preview', [
+            'title' => $title,
+            'file' => $filename,
+        ]);
     }
 }

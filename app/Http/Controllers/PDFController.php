@@ -14,7 +14,7 @@ class PDFController extends Controller
     public function generate($id)
     {
         $produk = ProdukHukum::find($id);
-        $pdf = PDF::loadView('pdf', compact('produk'));
+        $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
         return $pdf->download('SK-'.trim($produk->nomor).'-'.trim($produk->tahun).'.pdf');
     }
 
@@ -41,7 +41,7 @@ class PDFController extends Controller
             $passwd = $request->input('sandi');
             $produk = ProdukHukum::where('kode_acak', trim($key))->firstOrFail();
             if (false !== $produk && $passwd === $produk->sandi) {
-                $pdf = PDF::loadView('pdf', compact('produk'));
+                $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
                 return $pdf->download('SK-'.trim($produk->nomor).'-'.trim($produk->tahun).'.pdf');
             }
 
