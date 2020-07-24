@@ -11,3 +11,8 @@ npm-debug.log
 yarn-error.log
 .phpunit.result.cache
 *.pdf
+!*/bg-gedung-thamrin.jpeg
+!*/bg-hukum.jpeg
+!*/logo_kemenag.png
+!*/logo-kemenag.png
+!*/logo-kemenag-bw.png

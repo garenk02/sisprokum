@@ -3,6 +3,7 @@
     <head>
         <title>eProduk Hukum - eProKum</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
