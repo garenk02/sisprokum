@@ -13,5 +13,6 @@ class ProdukHukumExporter extends ExcelExporter
         'nomor' => 'Nomor',
         'tahun' => 'Tahun',
         'judul' => 'Judul/Tentang',
+        'status' => 'Status',
     ];
 }

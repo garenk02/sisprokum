@@ -132,20 +132,22 @@ class ProdukHukumController extends Controller
             $filter->like('judul', 'Judul');
         });
         $grid->quickSearch('nomor', 'tahun', 'judul');
-        $grid->nomor('Nomor')->width(100)->filter()->sortable();
-        $grid->tahun('Tahun')->width(100)->filter()->sortable();
-        $grid->judul('Judul')->width(500)->filter()->sortable();
+        $grid->nomor('Nomor')->width(100)->filter()->sortable()->setAttributes(['class' => 'text-center']);
+        $grid->tahun('Tahun')->width(100)->filter()->sortable()->setAttributes(['class' => 'text-center']);
+        $grid->judul('Judul')->width(850)->filter()->sortable();
         $grid->status('Status')->display(function ($status) {
             return self::STATUS[$status];
-        })->width(100)->filter(self::STATUS)->sortable()->label([
+        })->width(150)->filter(self::STATUS)->sortable()->label([
             0 => 'warning',
             1 => 'success',
             2 => 'danger',
-        ]);
-        $grid->updated_at(trans('admin.updated_at'))->width(150)->date('d-m-Y')->sortable();
+        ])->setAttributes(['class' => 'text-center']);
+        $grid->column('updated_at', trans('admin.updated_at'))->width(140)->sortable()->diffForHumans('id');
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             $actions->disableView();
+            $actions->disableDelete();
         });
+        $grid->disableRowSelector();
         $grid->exporter(new ProdukHukumExporter());
 
         return $grid;
