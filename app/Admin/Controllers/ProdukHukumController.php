@@ -187,11 +187,11 @@ class ProdukHukumController extends Controller
         $form->date('tanggal', 'Tanggal')->rules('required|date');
         $form->table('extra', function ($table) {
             $table->text('jabatan');
-        })->required();
+        });
         $form->date('retensi', 'Retensi')->rules('required|date');
         $form->text('sandi', 'Sandi')->setWidth(3, 2)->rules('required');
         $form->select('status', 'Status')->setWidth(2, 2)->options(self::STATUS);
-        $form->text('kode_acak')->readonly();
+        $form->hidden('kode_acak');
 
         if ($form->isEditing()) {
             $form->tools(function (Form\Tools $tools) {
