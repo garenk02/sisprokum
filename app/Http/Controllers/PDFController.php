@@ -15,7 +15,8 @@ class PDFController extends Controller
     {
         $produk = ProdukHukum::find($id);
         $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
-        return $pdf->download('SK-'.trim($produk->nomor).'-'.trim($produk->tahun).'.pdf');
+        $suffix = (1 != $produk->status) ? '-Draf' : '';
+        return $pdf->download('SK-' . trim($produk->nomor) . '-' . trim($produk->tahun) . $suffix . '.pdf');
     }
 
     /**
@@ -42,10 +43,10 @@ class PDFController extends Controller
             $produk = ProdukHukum::where('kode_acak', trim($key))->firstOrFail();
             if (false !== $produk && $passwd === $produk->sandi) {
                 $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
-                return $pdf->download('SK-'.trim($produk->nomor).'-'.trim($produk->tahun).'.pdf');
+                return $pdf->download('SK-' . trim($produk->nomor) . '-' . trim($produk->tahun) . '.pdf');
             }
 
-            return redirect('/unduh/publik/'.$key)->with('error', 'Kata sandi tidak tepat!');
+            return redirect('/unduh/publik/' . $key)->with('error', 'Kata sandi tidak tepat!');
         }
 
         return false;

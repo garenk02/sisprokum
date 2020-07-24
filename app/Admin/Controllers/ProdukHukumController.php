@@ -13,6 +13,7 @@ use Encore\Admin\Show;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use PDF;
+use Illuminate\Support\Facades\Redirect;
 
 class ProdukHukumController extends Controller
 {
@@ -208,16 +209,20 @@ class ProdukHukumController extends Controller
             $form->tools(function (Form\Tools $tools) {
                 $id = request()->segment(3);
                 $tools->add('
-                    <div class="btn-group pull-right" style="padding-right: 5px">
-                        <a href="/unduh/'.$id.'/pdf" class="btn btn-sm btn-success" title="Unduh PDF" target="_blank">
-                            <i class="fa fa-download"></i>
-                            <span class="hidden-xs">&nbsp;Unduh PDF</span>
-                        </a>
+                    <span style="padding-right: 2px">
                         <a href="/admin/produk_hukum/'.$id.'/preview" class="btn btn-sm btn-warning" title="Pratinjau" target="_blank">
                             <i class="fa fa-eye"></i>
-                            <span class="hidden-xs">&nbsp;Pratinjau</span>
+                            &nbsp;Pratinjau
                         </a>
-                    </div>
+                    </span>
+                ');
+                $tools->add('
+                    <span style="padding-right: 5px">
+                        <a href="/unduh/'.$id.'/pdf" class="btn btn-sm btn-success" title="Unduh" target="_blank">
+                            <i class="fa fa-download"></i>
+                            &nbsp;Unduh
+                        </a>
+                    </span>
                 ');
             });
         } else {
@@ -226,6 +231,8 @@ class ProdukHukumController extends Controller
                 $footer->disableSubmit(false);
             });
         }
+
+        $form->confirm('Yakin dengan semua isian Anda？');
 
         $form->saving(function (Form $form) {
             $form->kode_acak = Str::random(40);
@@ -238,13 +245,11 @@ class ProdukHukumController extends Controller
     {
         $produk = ProdukHukum::find($id);
         $pdf = PDF::loadView('pdf', compact('produk'))->setPaper($produk->paper);
-        $title = 'SK-'.trim($produk->nomor).'-'.trim($produk->tahun);
-        $filename = $title.'.pdf';
+        $suffix = (1 != $produk->status) ? '-Draf' : '';
+        $title = 'SK-' . trim($produk->nomor) . '-' . trim($produk->tahun) . $suffix;
+        $filename = $title . '.pdf';
         Storage::disk('public')->put('pdf/' . $filename, $pdf->output());
 
-        return view('preview', [
-            'title' => $title,
-            'file' => $filename,
-        ]);
+        return Redirect::to('/pdfjs/web/viewer.html?file=pdf/' . $filename);
     }
 }

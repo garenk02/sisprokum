@@ -12,7 +12,7 @@
             data: {
                 labels: dLabels,
                 datasets: [{
-                    label: 'Jumlah Surat Keputusan',
+                    label: 'Produk Hukum',
                     data: dDatasets,
                     backgroundColor: dBgColor,
                     borderColor: dBorderColor,

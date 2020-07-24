@@ -27,7 +27,7 @@ class Dashboard
     {
         $produk = new ProdukHukum();
         $total = $produk->count();
-        $infoBox = new InfoBox('Total Surat', 'surat', 'aqua', '/admin/produk_hukum', $total);
+        $infoBox = new InfoBox('Total Surat', 'book', 'aqua', '/admin/produk_hukum', $total);
         return $infoBox->render();
     }
 
@@ -35,7 +35,7 @@ class Dashboard
     {
         $produk = new ProdukHukum();
         $total = $produk::where('status', 1)->count();
-        $infoBox = new InfoBox('Surat Aktif', 'surat', 'green', '/admin/produk_hukum?&status[]=1', $total);
+        $infoBox = new InfoBox('Surat Aktif', 'check', 'green', '/admin/produk_hukum?&status[]=1', $total);
         return $infoBox->render();
     }
 
@@ -43,7 +43,7 @@ class Dashboard
     {
         $produk = new ProdukHukum();
         $total = $produk::where('status', 0)->count();
-        $infoBox = new InfoBox('Surat Draf', 'surat', 'orange', '/admin/produk_hukum?&status[]=0', $total);
+        $infoBox = new InfoBox('Surat Draf', 'bookmark', 'orange', '/admin/produk_hukum?&status[]=0', $total);
         return $infoBox->render();
     }
 
