@@ -21,7 +21,7 @@ class HomeController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="/prokum/'.$row->kode_acak.'" class="edit btn btn-primary btn-sm">Detil</a>';
+                    $btn = '<a href="/prokum/'.$row->kode_acak.'" class="edit btn btn-primary btn-sm"><span style="color:white;font-weight:bold;">Detil</span></a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])

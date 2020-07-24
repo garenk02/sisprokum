@@ -73,7 +73,7 @@
         <tr>
             <td width="47%" valign="bottom" style="float:left;margin-left:-10px;">
                 @if ($produk->status == 1)
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/images/logo-kemenag.png')->generate(url('/unduh/publik/'.$produk->kode_acak))) !!} ">
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/images/logo-kemenag.png')->generate(url('/prokum/'.$produk->kode_acak))) !!} ">
                 @endif
             </td>
             <td width="53%" valign="bottom">

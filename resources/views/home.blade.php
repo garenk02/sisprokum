@@ -26,7 +26,6 @@
             }
             .flex-center {
                 align-items: center;
-                display: flex;
                 justify-content: center;
             }
             .position-ref {
@@ -63,7 +62,7 @@
                 color: #000000;
             }
             .logo {
-                margin-top: 80px;
+                margin-top: 30px;
                 width: 120px;
                 height: auto;
             }
@@ -73,7 +72,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <img src="{{ asset('storage/images/logo_kemenag.png') }}" title="Logo Kemenag RI" class="logo"/>
-                <div class="title">eProduk Hukum - eProKum</div>
+                <div class="title">eProduk Hukum (eProKum)</div>
                 <div class="sub-title m-b-md">Direktorat Jenderal Bimbingan Masyarakat Kristen</div>
                 <div class="container">
                     <table class="table table-bordered data-table">
@@ -89,7 +88,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p>Kementerian Agama Republik Indonesia &copy; {{ date('Y') }}</p>
+                <p>Kementerian Agama Republik Indonesia<br>&copy; {{ date('Y') }}</p>
         </div>
     </body>
     <script type="text/javascript">
