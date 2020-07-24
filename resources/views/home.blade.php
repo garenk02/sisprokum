@@ -62,12 +62,17 @@
             .table {
                 color: #000000;
             }
+            .logo {
+                margin-top: 80px;
+                width: 120px;
+                height: auto;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <img src="{{ asset('storage/images/logo-kemenag.png') }}" title="Logo Kemenag RI" />
+                <img src="{{ asset('storage/images/logo_kemenag.png') }}" title="Logo Kemenag RI" class="logo"/>
                 <div class="title">eProduk Hukum - eProKum</div>
                 <div class="sub-title m-b-md">Direktorat Jenderal Bimbingan Masyarakat Kristen</div>
                 <div class="container">

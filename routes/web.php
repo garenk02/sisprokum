@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/prokum/{key}', 'HomeController@find')->name('home.detail');
 Route::get('/unduh/{id}/pdf', 'PDFController@generate')->name('download.pdf');
 Route::get('/unduh/publik/{key}', 'PDFController@public')->name('download.form');
 Route::post('/unduh/publik/{key}', 'PDFController@downloadPDF')->name('download.final');

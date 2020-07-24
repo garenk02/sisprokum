@@ -9,6 +9,5 @@ Route::group([
     'middleware'    => config('admin.route.middleware'),
 ], function (Router $router) {
     $router->get('/', 'HomeController@index')->name('admin.home');
-    $router->resource('example', ExampleController::class);
     $router->resource('produk_hukum', ProdukHukumController::class);
 });
