@@ -69,7 +69,9 @@
         ],
         "post-install-cmd": [
             "cd public && rm -Rf storage",
-            "ln -sr storage/app/public public/storage"
+            "ln -sr storage/app/public public/storage",
+            "cd public/pdfjs/web && rm -Rf pdf",
+            "ln -sr storage/app/public/pdf public/pdfjs/web"
         ]
     }
 }
