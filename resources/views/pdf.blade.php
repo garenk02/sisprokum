@@ -10,9 +10,9 @@
             margin-bottom: 2.5cm;
             margin-left: 2.5cm;
         }
-        body {
+        body, p, .content, .content > table {
             font-family: Bookman Old Style;
-            font-size: 14px;
+            font-size: 17.5px;
         }
         .footer { position: fixed; left: 0px; bottom: -190px; right: 0px; height: 185px; }
         .center { text-align: center}
@@ -58,7 +58,7 @@
         <img src="{{ storage_path('app/images/logo-kemenag-bw.png') }}" width="120" height="120"/>
         <p>
             KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN<br>
-            KEMENTERIAN AGAMA REPUBLIK INDONESIA<br>
+            KEMENTERIAN AGAMA<br>
             NOMOR {{ $produk->nomor }} TAHUN {{ $produk->tahun }}<br>
             TENTANG<br>
             {{ strtoupper($produk->judul) }}<br><br>
@@ -71,9 +71,9 @@
     </div>
     <table border="0" width="100%" style="margin-top:20px;">
         <tr>
-            <td width="55%" valign="bottom">
+            <td width="55%" valign="bottom" style="float:left;">
                 @if ($produk->status == 1)
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(130)->merge('/storage/app/images/logo-kemenag.png')->generate(url('/unduh/publik/'.$produk->kode_acak))) !!} ">
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/images/logo-kemenag.png')->generate(url('/unduh/publik/'.$produk->kode_acak))) !!} ">
                 @endif
             </td>
             <td width="45%" valign="bottom">
