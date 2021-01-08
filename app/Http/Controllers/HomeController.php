@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProdukHukum;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
@@ -21,7 +22,7 @@ class HomeController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="/prokum/'.$row->kode_acak.'" class="edit btn btn-primary btn-sm"><span style="color:white;font-weight:bold;">Detil</span></a>';
+                    $btn = '<a href="'.URL::to('/prokum/'.$row->kode_acak).'" class="edit btn btn-primary btn-sm"><span style="color:white;font-weight:bold;">Detil</span></a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])

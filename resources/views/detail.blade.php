@@ -46,7 +46,7 @@
                             {{ config('dirjen.name', 'THOMAS PENTURY') }}
                         </p>
                     </div>
-                    <p><a href="/" class="btn btn-success btn-sm">&laquo; Kembali</a></p>
+                    <p><a href="{{ url('/') }}" class="btn btn-success btn-sm">&laquo; Kembali</a></p>
                     <p class="copyright">
                         Direktorat Jenderal Bimbingan Masyarakat Kristen<br>
                         Kementerian Agama Republik Indonesia<br>&copy; {{ date('Y') }}

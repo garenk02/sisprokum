@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use PDF;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class ProdukHukumController extends Controller
 {
@@ -74,7 +75,7 @@ class ProdukHukumController extends Controller
             ->header('eProduk Hukum')
             ->description('Detil')
             ->breadcrumb(
-                ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
+                ['text' => 'Produk Hukum', 'url' => URL::to('/produk_hukum')],
                 ['text' => 'Detil'],
             )
             ->body($this->detail($id));
@@ -93,7 +94,7 @@ class ProdukHukumController extends Controller
             ->header('eProduk Hukum')
             ->description('Ubah')
             ->breadcrumb(
-                ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
+                ['text' => 'Produk Hukum', 'url' => URL::to('/produk_hukum')],
                 ['text' => 'Ubah'],
             )
             ->body($this->form()->edit($id));
@@ -111,7 +112,7 @@ class ProdukHukumController extends Controller
             ->header('eProduk Hukum')
             ->description('Buat Baru')
             ->breadcrumb(
-                ['text' => 'Produk Hukum', 'url' => '/produk_hukum'],
+                ['text' => 'Produk Hukum', 'url' => URL::to('/produk_hukum')],
                 ['text' => 'Buat Baru']
             )
             ->body($this->form());
@@ -210,7 +211,7 @@ class ProdukHukumController extends Controller
                 $id = request()->segment(3);
                 $tools->add('
                     <span style="padding-right: 2px">
-                        <a href="/admin/produk_hukum/'.$id.'/preview" class="btn btn-sm btn-warning" title="Pratinjau" target="_blank">
+                        <a href="'.URL::to('/admin/produk_hukum/'.$id.'/preview').'" class="btn btn-sm btn-warning" title="Pratinjau" target="_blank">
                             <i class="fa fa-eye"></i>
                             <span class="hidden-xs">Pratinjau</span>
                         </a>
@@ -218,7 +219,7 @@ class ProdukHukumController extends Controller
                 ');
                 $tools->add('
                     <span style="padding-right: 5px">
-                        <a href="/unduh/'.$id.'/pdf" class="btn btn-sm btn-success" title="Unduh" target="_blank">
+                        <a href="'.URL::to('/unduh/'.$id.'/pdf').'" class="btn btn-sm btn-success" title="Unduh" target="_blank">
                             <i class="fa fa-download"></i>
                             <span class="hidden-xs">Unduh</span>
                         </a>
