@@ -73,7 +73,7 @@
         <tr>
             <td width="47%" valign="bottom" style="float:left;margin-left:-10px;">
                 @if ($produk->status == 1)
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate(url('/prokum/'.$produk->kode_acak))) !!} ">
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
                 @endif
             </td>
             <td width="53%" valign="bottom">
