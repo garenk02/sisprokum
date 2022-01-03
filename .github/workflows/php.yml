@@ -14,17 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Directory Permissions
+      run: chmod -R 777 storage bootstrap/cache
+
+    - name: Directory Permissions
+      run: cd bootstrap/cache/ && rm -rf *.php
+
     - name: Validate composer.json and composer.lock
       run: composer validate
 
-    - name: Composer update
-      run: composer update
-
     - name: Install dependencies
       run: composer install --ignore-platform-reqs --prefer-dist --no-progress --no-suggest
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
