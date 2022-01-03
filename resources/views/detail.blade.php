@@ -46,7 +46,7 @@
                             @endif
                             DIREKTUR JENDERAL<br>
                             BIMBINGAN MASYARAKAT KRISTEN,<br><br>
-                            {{ config('app.dirjen', 'THOMAS PENTURY') }}
+                            {{ config('app.dirjen', 'PONTUS SITORUS') }}
                         </p>
                     </div>
                     <p><a href="{{ url('/') }}" class="btn btn-success btn-sm">&laquo; Kembali</a></p>

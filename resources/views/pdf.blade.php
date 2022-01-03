@@ -87,7 +87,7 @@
                 DIREKTUR JENDERAL<br>
                 BIMBINGAN MASYARAKAT KRISTEN,<br><br>
                 <br><br><br><br>
-                {{ config('app.dirjen', 'THOMAS PENTURY') }}
+                {{ config('app.dirjen', 'PONTUS SITORUS') }}
             </td>
             @else
             <td width="47%" valign="bottom" style="float:left;margin-left:-10px;">

@@ -58,7 +58,7 @@ return [
 
     'dirjen' => env('DIRJEN', 'PONTUS SITORUS'),
 
-    'is_plt' => env('IS_PLT', FALSE),
+    'is_plt' => env('IS_PLT', TRUE),
 
     /*
     |--------------------------------------------------------------------------
