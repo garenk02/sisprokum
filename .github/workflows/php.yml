@@ -17,6 +17,9 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: composer validate
 
+    - name: Composer update
+      run: composer update
+
     - name: Install dependencies
       run: composer install --ignore-platform-reqs --prefer-dist --no-progress --no-suggest
 
