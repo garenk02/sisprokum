@@ -41,9 +41,12 @@
                         <p>
                             Ditetapkan di {{ $produk->kota }}<br>
                             pada tanggal {{ Carbon\Carbon::parse($produk->tanggal)->translatedFormat('d F Y') }}<br><br>
+                            @if (config('app.is_plt') == true)
+                            Plt.
+                            @endif
                             DIREKTUR JENDERAL<br>
                             BIMBINGAN MASYARAKAT KRISTEN,<br><br>
-                            {{ config('dirjen.name', 'THOMAS PENTURY') }}
+                            {{ config('app.dirjen', 'THOMAS PENTURY') }}
                         </p>
                     </div>
                     <p><a href="{{ url('/') }}" class="btn btn-success btn-sm">&laquo; Kembali</a></p>

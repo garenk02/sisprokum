@@ -56,6 +56,10 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'dirjen' => env('DIRJEN', 'PONTUS SITORUS'),
+
+    'is_plt' => env('IS_PLT', FALSE),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

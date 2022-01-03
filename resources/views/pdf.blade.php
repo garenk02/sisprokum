@@ -71,6 +71,25 @@
     </div>
     <table border="0" width="100%" style="margin-top:20px;">
         <tr>
+            @if (config('app.is_plt') == true)
+            <td width="43%" valign="bottom" style="float:left;margin-left:-10px;">
+                @if ($produk->status == 1)
+                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
+                @endif
+            </td>
+            <td width="1%">
+                <p style="margin-top:-63px;">Plt.</p>
+            </td>
+            <td width="56%" valign="bottom">
+                Ditetapkan di {{ $produk->kota }}<br>
+                pada tanggal {{ Carbon\Carbon::parse($produk->tanggal)->translatedFormat('d F Y') }}<br><br>
+                DIREKTUR JENDERAL<br>
+                DIREKTUR JENDERAL<br>
+                BIMBINGAN MASYARAKAT KRISTEN,<br><br>
+                <br><br><br><br>
+                {{ config('app.dirjen', 'THOMAS PENTURY') }}
+            </td>
+            @else
             <td width="47%" valign="bottom" style="float:left;margin-left:-10px;">
                 @if ($produk->status == 1)
                 <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
@@ -80,10 +99,12 @@
                 Ditetapkan di {{ $produk->kota }}<br>
                 pada tanggal {{ Carbon\Carbon::parse($produk->tanggal)->translatedFormat('d F Y') }}<br><br>
                 DIREKTUR JENDERAL<br>
+                DIREKTUR JENDERAL<br>
                 BIMBINGAN MASYARAKAT KRISTEN,<br><br>
                 <br><br><br><br>
-                {{ config('dirjen.name', 'THOMAS PENTURY') }}
+                {{ config('app.dirjen', 'THOMAS PENTURY') }}
             </td>
+            @endif
         </tr>
     </table>
 </body>
