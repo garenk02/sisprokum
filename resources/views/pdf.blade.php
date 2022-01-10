@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>SK - {{ $produk->nomor }} - {{ $produk->tahun }} - {{ $produk->judul }}</title>
     <style>
         @page {
@@ -10,15 +11,40 @@
             margin-bottom: 2.5cm;
             margin-left: 2.5cm;
         }
-        body, p, .content, .content > table {
+
+        body,
+        p,
+        .content,
+        .content>table {
             font-family: Bookman Old Style;
             font-size: 17.5px;
         }
-        .footer { position: fixed; left: 0px; bottom: -190px; right: 0px; height: 185px; }
-        .center { text-align: center}
-        div.content > table { border: 0 }
-        div.footer > table.extra { border-collapse: collapse; }
-        div.footer > table.extra, table.extra td { border: 1px solid black; }
+
+        .footer {
+            position: fixed;
+            left: 0px;
+            bottom: -190px;
+            right: 0px;
+            height: 185px;
+        }
+
+        .center {
+            text-align: center
+        }
+
+        div.content>table {
+            border: 0
+        }
+
+        div.footer>table.extra {
+            border-collapse: collapse;
+        }
+
+        div.footer>table.extra,
+        table.extra td {
+            border: 1px solid black;
+        }
+
         #watermark {
             position: fixed;
             top: 23%;
@@ -32,30 +58,31 @@
         }
     </style>
 </head>
+
 <body>
     @if($produk->status == 0)
-        <div id="watermark">
-            DRAF
-        </div>
+    <div id="watermark">
+        DRAF
+    </div>
     @endif
     <div class="footer">
         @if($produk->status == 0 && $produk->extra)
-            <table cellpadding="0" cellspacing="0" width="100%" class="extra">
-                <tr>
-                    @foreach($produk->extra as $data)
-                        <td align="center">{{ $data['jabatan'] }}</td>
-                    @endforeach
-                </tr>
-                <tr>
-                    @foreach($produk->extra as $data)
-                        <td align="center"><br><br></td>
-                    @endforeach
-                </tr>
-            </table>
+        <table cellpadding="0" cellspacing="0" width="100%" class="extra">
+            <tr>
+                @foreach($produk->extra as $data)
+                <td align="center">{{ $data['jabatan'] }}</td>
+                @endforeach
+            </tr>
+            <tr>
+                @foreach($produk->extra as $data)
+                <td align="center"><br><br></td>
+                @endforeach
+            </tr>
+        </table>
         @endif
     </div>
     <div class="center">
-        <img src="{{ asset('storage/images/logo-kemenag-bw.png') }}" width="120" height="120"/>
+        <img src="{{ asset('storage/images/logo-kemenag-bw.png') }}" width="120" height="120" />
         <p>
             KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN<br>
             KEMENTERIAN AGAMA<br>
@@ -74,11 +101,12 @@
             @if (config('app.is_plt') == true)
             <td width="43%" valign="bottom" style="float:left;margin-left:-10px;">
                 @if ($produk->status == 1)
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
+                <img
+                    src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
                 @endif
             </td>
-            <td width="1%">
-                <p style="margin-top:-63px;">Plt.</p>
+            <td width="1%" valign="top">
+                &nbsp;<br>&nbsp;<br><br>Plt.<br>
             </td>
             <td width="56%" valign="bottom">
                 Ditetapkan di {{ $produk->kota }}<br>
@@ -92,7 +120,8 @@
             @else
             <td width="47%" valign="bottom" style="float:left;margin-left:-10px;">
                 @if ($produk->status == 1)
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
+                <img
+                    src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->merge('/storage/app/public/images/logo-kemenag.png')->generate('KEPUTUSAN DIREKTUR JENDERAL BIMBINGAN MASYARAKAT KRISTEN KEMENTERIAN AGAMA NOMOR '.trim($produk->nomor).' TAHUN '.trim($produk->tahun).' TENTANG '.trim($produk->judul))) !!} ">
                 @endif
             </td>
             <td width="53%" valign="bottom">
@@ -108,4 +137,5 @@
         </tr>
     </table>
 </body>
+
 </html>
